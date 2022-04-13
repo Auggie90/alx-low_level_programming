@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * main - main block
@@ -11,31 +11,38 @@ int main(void)
 
 {
 
-int c = 0;
+int i = 0;
 
-int sum = 0;
+long int a = 0, b = 1, next;
 
 
 
-while (c < 1024)
-
-{
-
-if (c % 3 == 0 || c % 5 == 0)
+while (i < 50)
 
 {
 
-sum += c;
+next = a + b;
+
+a = b;
+
+b = next;
+
+printf("%lu", next);
+
+
+if (i < 49)
+
+{
+
+printf(", ");
 
 }
 
-
-
-c++;
+i++;
 
 }
 
-printf("%i\n", sum);
+putchar('\n');
 
 return (0);
 

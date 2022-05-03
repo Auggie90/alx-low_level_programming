@@ -1,1 +1,1 @@
-Static Libraries task 0 & 1
+C - Static libraries

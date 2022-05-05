@@ -1,43 +1,49 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * str_concat - concatenates two strings.
- * @s1: first string.
- * @s2: second string.
+ * str_concat - function that concatenates two strings.
  *
- * Return: pointer of an array of chars
+ * @s1: parameter 1
+ * @s2: parameter 2
+ * Return: pointer of concat if success.
  */
+
 char *str_concat(char *s1, char *s2)
 {
-char *strout;
-unsigned int i, j, k, limit;
+unsigned int strlen1, strlen2, i, j;
+char *p;
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
+strlen1 = 0;
+while (s1 && s1[strlen1])
+strlen1++;
 
-for (i = 0; s1[i] != '\0'; i++)
-;
+strlen2 = 0;
+while (s2 && s2[strlen2])
+strlen2++;
 
-for (j = 0; s2[j] != '\0'; j++)
-;
+p = malloc(sizeof(*p) * (strlen1 + strlen2 + 1));
 
-strout = malloc(sizeof(char) * (i + j + 1));
+if (p == NULL)
+return (NULL);
 
-if (strout == NULL)
+i = 0;
+while (i < strlen1)
 {
-														free(strout);
-														return (NULL);
-														}
+p[i] = s1[i];
+i++;
+}
 
-for (k = 0; k < i; k++)
-strout[k] = s1[k];
+j = 0;
+while (i < (strlen1 + strlen2))
+{
+p[i] = s2[j];
+i++;
+j++;
+}
 
-limit = j;
-for (j = 0; j <= limit; k++, j++)
-														strout[k] = s2[j];
+p[i] = '\0';
 
-return (strout);
+return (p);
 }

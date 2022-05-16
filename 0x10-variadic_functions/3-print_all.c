@@ -68,7 +68,7 @@ while (format && format[i])
 j = 0;
 while (j < 4)
 {
-if (*printType[j].type == format[i])
+(*printType[j].type == format[i])
 {
 														printf("%s", sep);
 														printType[j].printer(list);
